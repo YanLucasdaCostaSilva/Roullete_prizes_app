@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "864866976826",
+    "project_id": "roulette-prizes-app-15fff",
+    "storage_bucket": "roulette-prizes-app-15fff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864866976826:android:7306a95aea961ed5e3e103",
+        "android_client_info": {
+          "package_name": "com.roulette.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCowpB0VGYdlBAccuuaV2N70DcdSedxb54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

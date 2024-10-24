@@ -1,0 +1,193 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.roulette.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="34" />
+9-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml
+10    <!--
+11         Required to query activities that can process text, see:
+12         https://developer.android.com/training/package-visibility and
+13         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+14
+15         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+16    -->
+17    <queries>
+17-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:39:5-44:15
+18        <intent>
+18-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:40:9-43:18
+19            <action android:name="android.intent.action.PROCESS_TEXT" />
+19-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:41:13-72
+19-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:41:21-70
+20
+21            <data android:mimeType="text/plain" />
+21-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:42:13-50
+21-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:42:19-48
+22        </intent>
+23    </queries>
+24    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+25    <!-- <uses-sdk android:minSdkVersion="14" /> -->
+26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+26-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:10:5-79
+26-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:10:22-76
+27    <uses-permission android:name="android.permission.INTERNET" />
+27-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:11:5-67
+27-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:11:22-64
+28
+29    <application
+30        android:name="android.app.Application"
+30-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:4:9-42
+31        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+31-->[androidx.core:core:1.6.0] C:\Users\yan_l\.gradle\caches\transforms-3\1227bb32d338e358eff4c5bf5b08270c\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+32        android:icon="@mipmap/ic_launcher"
+32-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:5:9-43
+33        android:label="roulette_prizes_app" >
+33-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:3:9-44
+34        <activity
+34-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:6:9-27:20
+35            android:name="com.roulette.app.MainActivity"
+35-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:7:13-41
+36            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:12:13-163
+37            android:exported="true"
+37-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:8:13-36
+38            android:hardwareAccelerated="true"
+38-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:13:13-47
+39            android:launchMode="singleTop"
+39-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:9:13-43
+40            android:taskAffinity=""
+40-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:10:13-36
+41            android:theme="@style/LaunchTheme"
+41-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:11:13-47
+42            android:windowSoftInputMode="adjustResize" >
+42-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:14:13-55
+43
+44            <!--
+45                 Specifies an Android theme to apply to this Activity as soon as
+46                 the Android process has started. This theme is visible to the user
+47                 while the Flutter UI initializes. After that, this theme continues
+48                 to determine the Window background behind the Flutter UI.
+49            -->
+50            <meta-data
+50-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:19:13-22:17
+51                android:name="io.flutter.embedding.android.NormalTheme"
+51-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:20:15-70
+52                android:resource="@style/NormalTheme" />
+52-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:21:15-52
+53
+54            <intent-filter>
+54-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:23:13-26:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:24:17-68
+55-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:24:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:25:17-76
+57-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:25:27-74
+58            </intent-filter>
+59        </activity>
+60        <!--
+61             Don't delete the meta-data below.
+62             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+63        -->
+64        <meta-data
+64-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:30:9-32:33
+65            android:name="flutterEmbedding"
+65-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:31:13-44
+66            android:value="2" />
+66-->C:\Users\yan_l\Downloads\roulette_prizes_app\android\app\src\main\AndroidManifest.xml:32:13-30
+67
+68        <service
+68-->[:cloud_firestore] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-4.17.5\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-14:19
+69            android:name="com.google.firebase.components.ComponentDiscoveryService"
+69-->[:cloud_firestore] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-4.17.5\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:10:18-89
+70            android:directBootAware="true"
+70-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:32:13-43
+71            android:exported="false" >
+71-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:16:13-37
+72            <meta-data
+72-->[:cloud_firestore] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-4.17.5\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+73                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+73-->[:cloud_firestore] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-4.17.5\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-134
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[:cloud_firestore] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\cloud_firestore-4.17.5\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+75            <meta-data
+75-->[:firebase_core] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-13:85
+76                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+76-->[:firebase_core] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:12:17-124
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[:firebase_core] C:\Users\yan_l\AppData\Local\Pub\Cache\hosted\pub.dev\firebase_core-2.32.0\android\build\intermediates\merged_manifest\release\AndroidManifest.xml:13:17-82
+78            <meta-data
+78-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:17:13-19:85
+79                android:name="com.google.firebase.components:com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar"
+79-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:18:17-122
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:19:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:20:13-22:85
+82                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+82-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:21:17-111
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-firestore:24.11.0] C:\Users\yan_l\.gradle\caches\transforms-3\be5f8caa7690f9992e6725c6f4dc1e2b\transformed\jetified-firebase-firestore-24.11.0\AndroidManifest.xml:22:17-82
+84            <meta-data
+84-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\2119d9d7f864ab69861785e36e14af22\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:12:13-14:85
+85                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+85-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\2119d9d7f864ab69861785e36e14af22\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:13:17-116
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-common-ktx:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\2119d9d7f864ab69861785e36e14af22\transformed\jetified-firebase-common-ktx-20.4.3\AndroidManifest.xml:14:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:35:13-37:85
+88                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+88-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:36:17-109
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:37:17-82
+90        </service>
+91
+92        <provider
+92-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:23:9-28:39
+93            android:name="com.google.firebase.provider.FirebaseInitProvider"
+93-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:24:13-77
+94            android:authorities="com.roulette.app.firebaseinitprovider"
+94-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:25:13-72
+95            android:directBootAware="true"
+95-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:26:13-43
+96            android:exported="false"
+96-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:27:13-37
+97            android:initOrder="100" />
+97-->[com.google.firebase:firebase-common:20.4.3] C:\Users\yan_l\.gradle\caches\transforms-3\a33d41bcf3a2223df37a9b2a9c9d4c10\transformed\jetified-firebase-common-20.4.3\AndroidManifest.xml:28:13-36
+98
+99        <uses-library
+99-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+100            android:name="androidx.window.extensions"
+100-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+101            android:required="false" />
+101-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+102        <uses-library
+102-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+103            android:name="androidx.window.sidecar"
+103-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+104            android:required="false" />
+104-->[androidx.window:window:1.0.0-beta04] C:\Users\yan_l\.gradle\caches\transforms-3\1f063c91a907141588f51f373b1f5f4a\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+105
+106        <activity
+106-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\yan_l\.gradle\caches\transforms-3\83bd7fcc26403a15e00188c3570da0fa\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+107            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+107-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\yan_l\.gradle\caches\transforms-3\83bd7fcc26403a15e00188c3570da0fa\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+108            android:exported="false"
+108-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\yan_l\.gradle\caches\transforms-3\83bd7fcc26403a15e00188c3570da0fa\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+109            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+109-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\yan_l\.gradle\caches\transforms-3\83bd7fcc26403a15e00188c3570da0fa\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+110
+111        <meta-data
+111-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\yan_l\.gradle\caches\transforms-3\e76aed36a087f5f71489bfa0e357771e\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+112            android:name="com.google.android.gms.version"
+112-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\yan_l\.gradle\caches\transforms-3\e76aed36a087f5f71489bfa0e357771e\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+113            android:value="@integer/google_play_services_version" />
+113-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\yan_l\.gradle\caches\transforms-3\e76aed36a087f5f71489bfa0e357771e\transformed\jetified-play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+114    </application>
+115
+116</manifest>

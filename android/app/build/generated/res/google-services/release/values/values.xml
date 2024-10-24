@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">35641332760</string>
+    <string name="google_api_key" translatable="false">AIzaSyB0J1wndB2QTEDWPcvAyx70OXczCJTO0ZE</string>
+    <string name="google_app_id" translatable="false">1:35641332760:android:d09fe7218bc842185f9f6d</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyB0J1wndB2QTEDWPcvAyx70OXczCJTO0ZE</string>
+    <string name="google_storage_bucket" translatable="false">roulette-prizes-app-3dc8d.appspot.com</string>
+    <string name="project_id" translatable="false">roulette-prizes-app-3dc8d</string>
+</resources>
