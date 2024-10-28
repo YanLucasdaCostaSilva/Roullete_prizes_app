@@ -13,8 +13,9 @@ class PrizeRouletteScreen extends StatefulWidget {
 class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
     with SingleTickerProviderStateMixin {
   int numberOfPrizes = 8;
-  List<String> prizeList =
-      []; // Lista para armazenar os prêmios buscados do Firestore
+  // Lista para armazenar os prêmios buscados do Firestore
+  List<String> prizeList = [];
+  bool isRunned = false;
   late RouletteController _controller;
   final Duration spinDuration = const Duration(seconds: 8);
 
@@ -40,26 +41,17 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
         _buildRoulette(); // Constroi a roleta após buscar os prêmios
       });
     } catch (e) {
-      print('Erro ao buscar prêmios: $e');
+      debugPrint('Erro ao buscar prêmios: $e');
     }
-  }
-
-  // Função para gerar cores aleatórias
-  Color _getRandomColor() {
-    Random random = Random();
-    return Color.fromARGB(
-      255,
-      random.nextInt(256),
-      random.nextInt(256),
-      random.nextInt(256),
-    );
   }
 
   // Função para construir a roleta com cores e prêmios
   void _buildRoulette() {
     final group = RouletteGroup.uniform(
       numberOfPrizes,
-      colorBuilder: (index) => _getRandomColor(), // Gera cores aleatórias
+      colorBuilder: (index) => (index % 2 == 0)
+          ? const Color(0xff4d236e)
+          : const Color(0xFF8C0E7B), // Gera cores aleatórias
       textBuilder: (index) =>
           prizeList.isNotEmpty ? prizeList[index] : 'Prêmio ${index + 1}',
     );
@@ -70,6 +62,8 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
 
   // Função para girar a roleta
   Future<void> _spinRoulette() async {
+    if (isRunned) return;
+    isRunned = true;
     final randomIndex = Random().nextInt(numberOfPrizes);
     _controller.rollTo(randomIndex, duration: spinDuration);
 
@@ -77,6 +71,7 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
       final prize = prizeList[randomIndex];
       await _showPrizeAlert(prize);
     });
+    isRunned = false;
   }
 
   // Função para exibir um alerta com o prêmio sorteado
@@ -123,13 +118,36 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
                   const SizedBox(height: 24),
                   Center(
                     child: SizedBox(
-                      width: MediaQuery.sizeOf(context).width / 2.5,
-                      child: Roulette(
-                        controller: _controller,
-                        style: const RouletteStyle(
-                          dividerThickness: 4.0,
-                          textStyle: TextStyle(fontSize: 14),
-                        ),
+                      width: MediaQuery.sizeOf(context).width / 3,
+                      child: Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          InkWell(
+                            onTap: _spinRoulette,
+                            splashColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            child: Roulette(
+                              controller: _controller,
+                              style: const RouletteStyle(
+                                dividerThickness: 2.0,
+                                centerStickSizePercent: 0,
+                                textStyle: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Positioned(
+                            top: -45,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              size: 100,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -141,7 +159,7 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
                         MediaQuery.sizeOf(context).width / 2.5,
                         40,
                       ),
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: const Color(0xFF8C0E7B),
                       padding: const EdgeInsets.symmetric(
                         vertical: 16,
                         horizontal: 24,
@@ -155,6 +173,7 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
+                  const SizedBox(height: 32),
                 ],
               ),
             ),

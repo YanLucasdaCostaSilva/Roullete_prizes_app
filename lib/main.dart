@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const PrizeRouletteScreen(), // Chama a tela da roleta
+      // Chama a tela da roleta
+      home: const PrizeRouletteScreen(),
     );
   }
 }
