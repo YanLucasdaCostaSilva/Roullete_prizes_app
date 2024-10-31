@@ -1,16 +1,24 @@
-# roulette_prizes_app
+# roulette prizes app - Luutech
+![image](https://github.com/user-attachments/assets/52009bf3-c7b1-4d1b-9e5a-6335f0fe6497)
 
-A new Flutter project.
+
+
+ Status: Developed by Yan Lucas (yanluucascostta@gmail.com)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project aims to generate draws dynamically and randomly.
 
-A few resources to get you started if this is your first Flutter project:
+* Use flutter version 3.22.2
+* Dart version 3.4.3
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technologies Used: 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* C++ 
+* Dart 
+* Swift 
+* C 
+
+
+
+
