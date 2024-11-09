@@ -13,10 +13,11 @@ class PrizeRouletteScreen extends StatefulWidget {
 class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
     with SingleTickerProviderStateMixin {
   int numberOfPrizes = 8;
-  List<String> prizeList =
-      []; // Lista para armazenar os prêmios buscados do Firestore
+  // Lista para armazenar os prêmios buscados do Firestore
+  List<String> prizeList = [];
+  bool isRunned = false;
   late RouletteController _controller;
-  final Duration spinDuration = const Duration(seconds: 5);
+  final Duration spinDuration = const Duration(seconds: 8);
 
   @override
   void initState() {
@@ -40,26 +41,17 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
         _buildRoulette(); // Constroi a roleta após buscar os prêmios
       });
     } catch (e) {
-      print('Erro ao buscar prêmios: $e');
+      debugPrint('Erro ao buscar prêmios: $e');
     }
-  }
-
-  // Função para gerar cores aleatórias
-  Color _getRandomColor() {
-    Random random = Random();
-    return Color.fromARGB(
-      255,
-      random.nextInt(256),
-      random.nextInt(256),
-      random.nextInt(256),
-    );
   }
 
   // Função para construir a roleta com cores e prêmios
   void _buildRoulette() {
     final group = RouletteGroup.uniform(
       numberOfPrizes,
-      colorBuilder: (index) => _getRandomColor(), // Gera cores aleatórias
+      colorBuilder: (index) => (index % 2 == 0)
+          ? const Color(0xff4d236e)
+          : const Color(0xFF8C0E7B), // Gera cores aleatórias
       textBuilder: (index) =>
           prizeList.isNotEmpty ? prizeList[index] : 'Prêmio ${index + 1}',
     );
@@ -69,34 +61,28 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
   }
 
   // Função para girar a roleta
-  void _spinRoulette() {
-    final randomIndex =
-        Random().nextInt(numberOfPrizes); // Gera um índice aleatório
-    _controller.rollTo(randomIndex, duration: spinDuration); // Gira a roleta
+  Future<void> _spinRoulette() async {
+    if (isRunned) return;
+    isRunned = true;
+    final randomIndex = Random().nextInt(numberOfPrizes);
+    _controller.rollTo(randomIndex, duration: spinDuration);
 
-    Future.delayed(spinDuration, () {
-      final prize = prizeList[randomIndex]; // Obtém o prêmio sorteado
-      _showPrizeAlert(prize); // Mostra o alerta com o prêmio sorteado
-      _updateRouletteColors(); // Atualiza as cores da roleta após o giro
+    await Future.delayed(spinDuration, () async {
+      final prize = prizeList[randomIndex];
+      await _showPrizeAlert(prize);
     });
-  }
-
-  // Função para atualizar a roleta com novas cores
-  void _updateRouletteColors() {
-    setState(() {
-      _buildRoulette(); // Reconstrói a roleta com novas cores
-    });
+    isRunned = false;
   }
 
   // Função para exibir um alerta com o prêmio sorteado
-  void _showPrizeAlert(String prize) {
-    showDialog(
+  Future<void> _showPrizeAlert(String prize) async {
+    await showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Prêmio Sorteado!'),
           content: Text('Você ganhou: $prize'),
-          actions: <Widget>[
+          actions: [
             TextButton(
               child: const Text('OK'),
               onPressed: () {
@@ -114,58 +100,82 @@ class PrizeRouletteScreenState extends State<PrizeRouletteScreen>
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        title: const Text(
+          'Roleta de Prêmios',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
       ),
       body: prizeList.isEmpty
           ? const Center(
               child: CircularProgressIndicator(), // Indicador de carregamento
             )
-          : Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text(
-                    'Roleta de Prêmios',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(
-                    height: 20), // Espaçamento entre o título e a roleta
-                SizedBox(
-                  height: 330, // Altura da roleta
-                  width: 330, // Largura da roleta
-                  child: Roulette(
-                    controller: _controller, // Controla a roleta
-                    style: const RouletteStyle(
-                      dividerThickness: 4.0,
-                      textStyle: TextStyle(fontSize: 14),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                    height: 20), // Espaçamento entre a roleta e o botão
-                ElevatedButton(
-                  onPressed: _spinRoulette,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 21, 30, 155),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 24),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: const Text(
-                    'Girar Roleta',
-                    style: TextStyle(
-                      color: Colors.white,
+          : SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 24),
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.sizeOf(context).width / 3,
+                      child: Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          InkWell(
+                            onTap: _spinRoulette,
+                            splashColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            child: Roulette(
+                              controller: _controller,
+                              style: const RouletteStyle(
+                                dividerThickness: 2.0,
+                                centerStickSizePercent: 0,
+                                textStyle: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Positioned(
+                            top: -45,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              size: 100,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 32),
+                  ElevatedButton(
+                    onPressed: _spinRoulette,
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: Size(
+                        MediaQuery.sizeOf(context).width / 2.5,
+                        40,
+                      ),
+                      backgroundColor: const Color(0xFF8C0E7B),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 24,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text(
+                      'Girar Roleta',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
     );
   }
